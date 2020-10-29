@@ -12,7 +12,7 @@ public class ConsumerRest {
 	@Value("${valor1}")
 	private String variable;
 
-	@Autowired
+	@Autowired(required = false)
 	private ServiceRest serviceRest;
 
 	public ServiceRest getServiceRest() {
