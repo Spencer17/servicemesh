@@ -1,5 +1,6 @@
 package mx.com.profuturo.servicemesh;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,9 +11,12 @@ public class ConsumerRest {
 	
 	@Value( "${valor1}" )
 	private String variable; 
+	
+	@Autowired
+	private FeignCliente fc;
 
 	@GetMapping("/holaMundo")
 	public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return "Hola mundo con maps" + variable ;
+		return fc.getUser("pending").toString();
 	}
 }
