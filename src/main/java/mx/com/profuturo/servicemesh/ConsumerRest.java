@@ -15,6 +15,14 @@ public class ConsumerRest {
 	@Autowired
 	private ServiceRest serviceRest;
 
+	public ServiceRest getServiceRest() {
+		return serviceRest;
+	}
+
+	public void setServiceRest(ServiceRest serviceRest) {
+		this.serviceRest = serviceRest;
+	}
+
 	@GetMapping("/holaMundo")
 	public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return serviceRest.feingClient();
