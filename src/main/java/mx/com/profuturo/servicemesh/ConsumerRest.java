@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ConsumerRest {
-	
-	@Value( "${valor1}" )
-	private String variable; 
-	
+
+	@Value("${valor1}")
+	private String variable;
+
 	@Autowired
-	private FeignCliente fc;
+	private ServiceRest serviceRest;
 
 	@GetMapping("/holaMundo")
 	public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return fc.getUser("pending").toString();
+		return serviceRest.feingClient();
 	}
 }
