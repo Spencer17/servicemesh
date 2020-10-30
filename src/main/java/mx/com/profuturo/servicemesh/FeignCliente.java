@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "pets", url = "https://petstore.swagger.io")
 public interface FeignCliente {
 
-	@GetMapping("v2/pet/findByStatus")
-	public Collection<String> getUser(@RequestParam String status);
+	@GetMapping("/v2/pet/findByStatus")
+	public Collection	 getUser(@RequestParam String status);
 }
