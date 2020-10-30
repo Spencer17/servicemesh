@@ -3,7 +3,6 @@ package mx.com.profuturo.servicemesh;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,7 +23,12 @@ public class ConsumerRest {
 	}
 
 	@GetMapping("/holaMundo")
-	public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+	public String feingClient() {
 		return serviceRest.feingClient();
+	}
+	
+	@GetMapping("/falla")
+	public String falla() throws Exception {
+		return serviceRest.falla();
 	}
 }
